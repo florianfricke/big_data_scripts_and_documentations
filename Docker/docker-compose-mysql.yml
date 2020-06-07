@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  mysql_database:
+    image: mysql:5.7
+    container_name: mysql_database
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'to_do_list_database'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+
+    volumes:
+      - spring_boot_mysql_database_data:/var/lib/mysql
+
+volumes:
+  spring_boot_mysql_database_data:

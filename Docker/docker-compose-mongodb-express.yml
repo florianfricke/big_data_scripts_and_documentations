@@ -1,0 +1,28 @@
+# docker exec -it spring_boot_mongo_db bash
+# mongo -u <your username> -p <your password> --authenticationDatabase <your database name>
+
+# mongo express bietet eine Weboberfläche um die mongodb zu verwalten
+# Weboberfläche unter: http://192.168.99.100:8081/
+
+version: '3.1'
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: spring_boot_mongo_db
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_PORT: 27017
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: example
