@@ -62,7 +62,7 @@ docker stop <container_id>
 # Container löschen
 docker rm <container_id>
 
-# Container Logs ausgeben
+# Container Logs ausgeben (werden standardmäßig angezeigt, wenn die Option -d beim run-Befehel nicht gesetzt ist)
 docker logs <container_name>
 docker exec -it <container_name> bash --> cd var/log && cat logfile
 
@@ -71,6 +71,7 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <con
 
 # Datei aus dem Container ins lokale Verzeichnis kopieren
 docker cp container_name:/foo.txt foo.txt
+
 ```
 
 #### Docker Compose
